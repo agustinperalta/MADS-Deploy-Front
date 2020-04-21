@@ -1,0 +1,28 @@
+.panelFilter{
+    background: rgb(235, 233, 233);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 1.5em;
+    padding: 1em;
+}
+
+.grid-item{
+    grid: auto;
+}
+
+.filterName{
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+    .panelFilter{
+        grid-template-columns: auto auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .panelFilter{
+        grid-template-columns: auto;
+    }
+}
