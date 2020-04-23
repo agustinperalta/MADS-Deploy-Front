@@ -37,6 +37,18 @@ export class ListOwnership extends Component {
   //Extraigo el Objeto ownship del state
   render() {
     const { ownship, renderFilter } = this.state;
+    console.log(ownship);
+    if (ownship.length === 0){
+      return(
+        <div>
+            
+              <div className="ui active inverted dimmer">
+                <div className="ui text loader"><h3>Caragando Listado...Espere por favor</h3></div>
+              </div>
+            
+        </div>
+      )
+    }
     return (
       <div className="render ListOwnerShip">
         <div className="titleRow">
