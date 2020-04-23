@@ -43,7 +43,7 @@ export class ListOwnership extends Component {
         <div>
             
               <div className="ui active inverted dimmer">
-                <div className="ui text loader"><h3>Caragando Listado...Espere por favor</h3></div>
+                <div className="ui text loader"><h3>Caragando Propiedades...Espere por favor</h3></div>
               </div>
             
         </div>
