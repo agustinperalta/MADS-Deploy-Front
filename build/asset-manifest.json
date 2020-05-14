@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/MADS-Deploy-Front/static/css/main.b044e5a3.chunk.css",
+    "main.js": "/MADS-Deploy-Front/static/js/main.95faf9f9.chunk.js",
+    "main.js.map": "/MADS-Deploy-Front/static/js/main.95faf9f9.chunk.js.map",
+    "runtime-main.js": "/MADS-Deploy-Front/static/js/runtime-main.ad62a922.js",
+    "runtime-main.js.map": "/MADS-Deploy-Front/static/js/runtime-main.ad62a922.js.map",
+    "static/css/2.fc8da111.chunk.css": "/MADS-Deploy-Front/static/css/2.fc8da111.chunk.css",
+    "static/js/2.60671d9e.chunk.js": "/MADS-Deploy-Front/static/js/2.60671d9e.chunk.js",
+    "static/js/2.60671d9e.chunk.js.map": "/MADS-Deploy-Front/static/js/2.60671d9e.chunk.js.map",
+    "index.html": "/MADS-Deploy-Front/index.html",
+    "precache-manifest.87cc5bd6c637d3f6cb01cbbfb40fd5b0.js": "/MADS-Deploy-Front/precache-manifest.87cc5bd6c637d3f6cb01cbbfb40fd5b0.js",
+    "service-worker.js": "/MADS-Deploy-Front/service-worker.js",
+    "static/css/2.fc8da111.chunk.css.map": "/MADS-Deploy-Front/static/css/2.fc8da111.chunk.css.map",
+    "static/css/main.b044e5a3.chunk.css.map": "/MADS-Deploy-Front/static/css/main.b044e5a3.chunk.css.map",
+    "static/js/2.60671d9e.chunk.js.LICENSE.txt": "/MADS-Deploy-Front/static/js/2.60671d9e.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/MADS-Deploy-Front/static/media/outline-icons.ef60a4f6.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ad62a922.js",
+    "static/css/2.fc8da111.chunk.css",
+    "static/js/2.60671d9e.chunk.js",
+    "static/css/main.b044e5a3.chunk.css",
+    "static/js/main.95faf9f9.chunk.js"
+  ]
+}

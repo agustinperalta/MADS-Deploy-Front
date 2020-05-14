@@ -1,76 +1,91 @@
 import React, { Component } from "react";
+import { get } from "../util/api";
 import { Ownership } from "./Ownership";
-import { Button } from "semantic-ui-react";
-import Filter from "./Filter";
+import Filter, { ButtonFiltros, filterPropiedades } from "./Filter";
+import Loader from "../util/Loader";
 
 export class ListOwnership extends Component {
-  state = { ownship: [], renderFilter: false };
 
-  //Hago la llamada al servidor para solicitar las propiedades
-  //Extraigo el objeto data de la respuesta y se lo asigno al objeto ownship del state
-  componentDidMount() {
-    fetch("https://apicoalq.herokuapp.com/publicaciones")
-      .then((res) => res.json())
-      .then((respuesta) => {
-        const { data } = respuesta;
-        console.log(data);
-        this.setState({ ownship: data });
-      });
-  }
+	state = { 
+			ownship: null, 
+			renderFilter: false,
+			filters: {
+				"habitaciones": null,
+				"contrato": null,
+				"wifi": null,
+				"ascensor": null,
+				"cochera": null,
+				"asador": null,
+				"patio": null,
+				"allAmenities": null
+			},
+			filteredOwnship: null	
+		};
 
-  onClickFilterButton() {
-    const { renderFilter } = this.state;
-    this.setState({ renderFilter: !renderFilter });
-  }
+	componentDidMount() {
+		this.getPropiedades();
+	}
 
-  filterBtn = () => {
-      return (
-    <Button
-      onClick={() => this.onClickFilterButton()}
-      positive={this.state.renderFilter}
-    >
-      {this.state.renderFilter ? "" : <i className="filter icon"></i>}
-      {this.state.renderFilter ? "Aplicar" : "Filtros"}
-    </Button>
-  )};
+	getPropiedades = async () => {
+		let data = await get("/propiedades");
+		this.setState({ ownship: data });
+	};
 
-  //Extraigo el Objeto ownship del state
-  render() {
-    const { ownship, renderFilter } = this.state;
-    console.log(ownship);
-    if (ownship.length === 0){
-      return(
-        <div>
-            
-              <div className="ui active inverted dimmer">
-                <div className="ui text loader"><h3>Caragando Propiedades...Espere por favor</h3></div>
-              </div>
-            
-        </div>
-      )
-    }
-    return (
-      <div className="render ListOwnerShip">
-        <div className="titleRow">
-          <h1 className="title">Listado de Propiedades</h1>
-          <div className="filterComponent">{this.filterBtn()}</div>
-        </div>
-        {renderFilter ? <Filter /> : null}
-        {ownship.map((prop) => {
-          return (
-            <div className="tarjetaProp" key={prop.id}>
-              <Ownership
-                dtp={prop.datePublished}
-                id={prop.id}
-                loc={prop.location}
-                own={prop.owner}
-                price={prop.price}
-                roomAp={prop.roomApartment}
-              />
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
+	filterPropiedades = callback => {
+		const { ownship, filters } = this.state;
+		this.setState({ filteredOwnship: callback(ownship, filters) })
+	};
+    
+  onClickFilter = () => {
+		const { renderFilter } = this.state;
+		if (renderFilter){
+			this.filterPropiedades(filterPropiedades);
+		}
+		this.setState({ renderFilter: !renderFilter });
+	};C
+	
+	renderCards = data => {
+		return data.map((prop) => {
+			return (
+				<div className="tarjetaProp" key={prop.id}>
+          <Ownership
+            dtp={prop.fechaPublicacion}
+            id={prop.id}
+            loc={prop.ubicacion}
+            own={prop.usuario}
+            amen = {prop.amenities}
+            price={prop.precios}
+            roomAp={prop.habitaciones}
+            image = {prop.imagenes}
+            lat={prop.lat}
+            long={prop.longitud}
+          />
+				</div>
+			);
+		})
+	}
+
+	renderOwnership = () => {
+		const { ownship, renderFilter, filteredOwnship } = this.state;
+		return (
+			<div className="render ListOwnerShip">
+				<div className="titleRow">
+					<h1 className="title">Listado de Propiedades</h1>
+					<div className="filterComponent">
+						<ButtonFiltros
+							onFilter={() => this.onClickFilter()}
+							renderFilter={this.state.renderFilter}
+						/>
+					</div>
+				</div>
+				{renderFilter ? <Filter filterState={this.state.filters} setFilterState={this.setState.bind(this)} /> : null}
+				{ filteredOwnship ? this.renderCards(filteredOwnship) : this.renderCards(ownship) }
+			</div>
+		);
+	};
+
+	render() {
+		const { ownship } = this.state;
+		return ownship ? this.renderOwnership() : <Loader />;
+	}
 }
