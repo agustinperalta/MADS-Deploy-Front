@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d87cbbb8a2339c7e86aac78e3a7498a7",
+    "revision": "1d8946a053a708371451b8384ba43701",
     "url": "/MADS-Deploy-Front/index.html"
   },
   {
-    "revision": "a8dadd8351fb42641ab1",
+    "revision": "45078ddcfc6231154439",
     "url": "/MADS-Deploy-Front/static/css/2.fc8da111.chunk.css"
   },
   {
-    "revision": "4d28fbc1411af4df2cd9",
-    "url": "/MADS-Deploy-Front/static/css/main.b044e5a3.chunk.css"
+    "revision": "02b4eb139cd0318dce7e",
+    "url": "/MADS-Deploy-Front/static/css/main.17d7c39d.chunk.css"
   },
   {
-    "revision": "a8dadd8351fb42641ab1",
-    "url": "/MADS-Deploy-Front/static/js/2.60671d9e.chunk.js"
+    "revision": "45078ddcfc6231154439",
+    "url": "/MADS-Deploy-Front/static/js/2.8b5dc764.chunk.js"
   },
   {
-    "revision": "4d47ffde3dc69784e8e23fd910817ef8",
-    "url": "/MADS-Deploy-Front/static/js/2.60671d9e.chunk.js.LICENSE.txt"
+    "revision": "174263e5b9d3e85c08d4329eaeeb7640",
+    "url": "/MADS-Deploy-Front/static/js/2.8b5dc764.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4d28fbc1411af4df2cd9",
-    "url": "/MADS-Deploy-Front/static/js/main.95faf9f9.chunk.js"
+    "revision": "02b4eb139cd0318dce7e",
+    "url": "/MADS-Deploy-Front/static/js/main.94e1a705.chunk.js"
   },
   {
     "revision": "4d3864c11c4000e8739a",
